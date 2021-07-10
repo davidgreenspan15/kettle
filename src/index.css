@@ -11,3 +11,16 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.css-yk16xz-control {
+  max-height: 80px;
+  overflow: scroll;
+}
+
+.css-1hb7zxy-IndicatorsContainer {
+  max-height: 35px;
+}
+
+.css-g1d714-ValueContainer {
+  flex-wrap: nowrap;
+}

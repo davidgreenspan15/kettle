@@ -3,10 +3,17 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { ChakraProvider } from '@chakra-ui/react';
+import '@fontsource/roboto';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ChakraProvider>
+      <Router>
+        <App />
+      </Router>
+    </ChakraProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
