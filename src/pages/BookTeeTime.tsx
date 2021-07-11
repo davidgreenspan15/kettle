@@ -1,14 +1,14 @@
-import React from 'react';
-import { Flex, Heading } from '@chakra-ui/react';
-import BoookingForm from '../components/BookingForm';
-import { Redirect, useHistory } from 'react-router-dom';
-import { autoLogin } from '../requests/user';
-import { User } from '../types/user';
+import { Flex, Heading, Stack } from '@chakra-ui/react';
 import { Button } from '@material-ui/core';
-import { searchTickets } from '../requests/search';
+import React from 'react';
+import { useHistory } from 'react-router-dom';
+
+import BoookingForm from '../components/BookingForm';
 import TicketsContainer from '../components/TicketsContainer';
-import { getMyTickets } from '../requests/ticket';
+import { searchTickets } from '../requests/search';
+import { autoLogin } from '../requests/user';
 import { Ticket } from '../types/ticket';
+import { User } from '../types/user';
 
 const BookTeeTime: React.FC<{}> = () => {
   const [user, setUser] = React.useState<User>();
@@ -45,28 +45,22 @@ const BookTeeTime: React.FC<{}> = () => {
   };
 
   return (
-    <Flex flexDirection="row" w="100%">
-      <Flex flexDirection="column" w="100%" p="10px">
-        <Button
-          onClick={() => {
-            handleSearch();
-          }}
-        >
-          Run Search
-        </Button>
-        {user ? (
-          <Flex flexDirection="column">
-            <BoookingForm
-              user={user}
-              tickets={tickets}
-              setTickets={setTickets}
-            />
-            <TicketsContainer tickets={tickets} />
-          </Flex>
-        ) : (
-          <Heading>No User Error</Heading>
-        )}
-      </Flex>
+    <Flex flexDirection="column" w="100%" p="10px" h="100%">
+      <Button
+        onClick={() => {
+          handleSearch();
+        }}
+      >
+        Run Search
+      </Button>
+      {user ? (
+        <Stack flexDirection="column" spacing={2}>
+          <BoookingForm user={user} tickets={tickets} setTickets={setTickets} />
+          <TicketsContainer tickets={tickets} />
+        </Stack>
+      ) : (
+        <Heading>No User Error</Heading>
+      )}
     </Flex>
   );
 };

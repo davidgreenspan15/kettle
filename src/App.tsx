@@ -1,10 +1,10 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import { Flex } from '@chakra-ui/react';
+
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
+
 import BookTeeTime from './pages/BookTeeTime';
 import SignupPage from './pages/SignnupPage';
-import { Switch, Route } from 'react-router-dom';
 
 function App() {
   return (

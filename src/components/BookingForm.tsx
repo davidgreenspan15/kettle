@@ -91,7 +91,12 @@ const BoookingForm: React.FC<{
   };
 
   return (
-    <Flex flexDirection="column" p={'10px'} border="1px solid">
+    <Flex
+      flexDirection="column"
+      p={'10px'}
+      border="1px solid"
+      backgroundColor="white"
+    >
       <Flex flexDirection="column" pr={['0px', '200px']} py="10px">
         <Flex flexDirection="row">
           <Flex flexDirection="column">
@@ -218,7 +223,11 @@ const BoookingForm: React.FC<{
         onClick={() => {
           handleSubmit();
         }}
-        style={{ alignSelf: 'flex-end' }}
+        style={{
+          alignSelf: 'flex-end',
+          background: '#3fb1b5',
+          color: 'white',
+        }}
       >
         Submit Ticket
       </Button>

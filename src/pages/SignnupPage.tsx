@@ -1,7 +1,8 @@
+import { Button, Flex, Heading, Input } from '@chakra-ui/react';
 import React from 'react';
-import { Flex, Heading, Input, Button } from '@chakra-ui/react';
-import { signup, login } from '../requests/user';
-import { Redirect, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+
+import { login, signup } from '../requests/user';
 
 const SignupPage: React.FC<{}> = () => {
   const [name, setName] = React.useState('');

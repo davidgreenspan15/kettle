@@ -1,11 +1,12 @@
+import './index.css';
+
+import { ChakraProvider } from '@chakra-ui/react';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import { BrowserRouter as Router } from 'react-router-dom';
+
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import { ChakraProvider } from '@chakra-ui/react';
-import '@fontsource/roboto';
 
 ReactDOM.render(
   <React.StrictMode>
