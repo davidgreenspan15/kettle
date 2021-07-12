@@ -1,4 +1,4 @@
-import { Ticket } from '../types/ticket';
+import { Ticket } from '../types/user';
 import axios from 'axios';
 import { SearchForm } from '../types/search';
 export const createTicket = async (body: SearchForm) => {

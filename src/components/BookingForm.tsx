@@ -7,8 +7,7 @@ import React, { useState } from 'react';
 import { courses } from '../config/courseDB';
 import { Option } from '../requests/search';
 import { createTicket } from '../requests/ticket';
-import { User } from '../types/user';
-import { Ticket } from '../types/ticket';
+import { User, Ticket } from '../types/user';
 
 const BoookingForm: React.FC<{
   user: User;
@@ -225,8 +224,9 @@ const BoookingForm: React.FC<{
         }}
         style={{
           alignSelf: 'flex-end',
-          background: '#3fb1b5',
+          background: '##3f51b5',
           color: 'white',
+          boxShadow: '-2px 1px 20px 0px grey',
         }}
       >
         Submit Ticket

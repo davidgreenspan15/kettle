@@ -7,9 +7,8 @@ import BoookingForm from '../components/BookingForm';
 import TicketsContainer from '../components/TicketsContainer';
 import { searchTickets } from '../requests/search';
 import { autoLogin } from '../requests/user';
-import { Ticket } from '../types/ticket';
-import { User } from '../types/user';
-
+import { User, Ticket } from '../types/user';
+import { getMyTickets } from '../requests/ticket';
 const BookTeeTime: React.FC<{}> = () => {
   const [user, setUser] = React.useState<User>();
   const [tickets, setTickets] = React.useState<Ticket[]>([]);
@@ -28,7 +27,8 @@ const BookTeeTime: React.FC<{}> = () => {
       const user = await autoLogin(id);
       setUser(user);
       if (user && user.tickets) {
-        setTickets(user?.tickets);
+        const tickets = await getMyTickets(user.id);
+        if (tickets) setTickets(tickets);
       }
     } catch (err) {
       console.log(err);
