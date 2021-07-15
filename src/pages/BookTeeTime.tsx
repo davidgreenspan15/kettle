@@ -1,4 +1,4 @@
-import { Flex, Heading, Stack } from '@chakra-ui/react';
+import { Flex, Heading, Stack, Container } from '@chakra-ui/react';
 import { Button } from '@material-ui/core';
 import React from 'react';
 import { useHistory } from 'react-router-dom';
@@ -45,18 +45,22 @@ const BookTeeTime: React.FC<{}> = () => {
   };
 
   return (
-    <Flex flexDirection="column" w="100%" p="10px" h="100%">
-      <Button
-        onClick={() => {
-          handleSearch();
-        }}
-      >
-        Run Search
-      </Button>
+    <Flex flexDirection="column" w="100%" p={['0px', '10px']} maxW="" h="100%">
+      {user && user.isAdmin && (
+        <Button
+          onClick={() => {
+            handleSearch();
+          }}
+        >
+          Run Search
+        </Button>
+      )}
       {user ? (
         <Stack flexDirection="column" spacing={2}>
           <BoookingForm user={user} tickets={tickets} setTickets={setTickets} />
-          <TicketsContainer tickets={tickets} />
+          <Container maxW="container.xl" background="white">
+            <TicketsContainer tickets={tickets} setTickets={setTickets} />
+          </Container>
         </Stack>
       ) : (
         <Heading>No User Error</Heading>

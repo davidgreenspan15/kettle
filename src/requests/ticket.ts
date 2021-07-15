@@ -6,7 +6,7 @@ export const createTicket = async (body: SearchForm) => {
 
   try {
     const ticket = await axios.post<Ticket>(
-      'http://localhost:8000/tickets',
+      'http://localhost:8000/tickets/create',
       {
         ...body,
       },
@@ -23,7 +23,23 @@ export const getMyTickets = async (uuid: string) => {
 
   try {
     const ticket = await axios.post<Ticket[]>(
-      `http://localhost:8000/tickets/${uuid}`,
+      `http://localhost:8000/tickets/${uuid}/`,
+      {},
+      { method: 'POST', headers: myHeaders }
+    );
+    return ticket.data;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const cancelTicket = async (id: number) => {
+  let myHeaders = new Headers();
+
+  try {
+    const ticket = await axios.post<Ticket>(
+      `http://localhost:8000/tickets/${id}/cancel`,
+      {},
       { method: 'POST', headers: myHeaders }
     );
     return ticket.data;

@@ -23,7 +23,7 @@ export interface Ticket {
   p07: boolean;
   createdAt: string;
   attempt: number;
-  searches: Search[];
+  searches?: Search[];
 }
 
 export interface Search {

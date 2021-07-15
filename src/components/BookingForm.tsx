@@ -20,7 +20,7 @@ const BoookingForm: React.FC<{
     courses.reduce((acc, key, index) => {
       acc.push({
         value: courses[index].CourseID,
-        label: courses[index].CourseName,
+        label: courses[index].CourseName.replace(' Golf Course', ''),
         type:
           courses[index].CourseName.includes('10') ||
           courses[index].CourseName.includes('Blue') ||
@@ -52,7 +52,7 @@ const BoookingForm: React.FC<{
         max: players,
       });
       if (ticket) {
-        setTickets([...tickets, ticket]);
+        setTickets([ticket, ...tickets]);
       }
       console.log(ticket);
     } catch (err) {
@@ -90,12 +90,7 @@ const BoookingForm: React.FC<{
   };
 
   return (
-    <Flex
-      flexDirection="column"
-      p={'10px'}
-      border="1px solid"
-      backgroundColor="white"
-    >
+    <Flex flexDirection="column" p={'10px'}>
       <Flex flexDirection="column" pr={['0px', '200px']} py="10px">
         <Flex flexDirection="row">
           <Flex flexDirection="column">
@@ -224,7 +219,7 @@ const BoookingForm: React.FC<{
         }}
         style={{
           alignSelf: 'flex-end',
-          background: '##3f51b5',
+          background: '#3f51b5',
           color: 'white',
           boxShadow: '-2px 1px 20px 0px grey',
         }}
