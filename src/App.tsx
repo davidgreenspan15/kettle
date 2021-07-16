@@ -9,16 +9,14 @@ import { Container } from '@chakra-ui/react';
 
 function App() {
   return (
-    <Container maxW="container.xl" background="white">
-      <Switch>
-        <Route path="/signup" exact={true}>
-          <SignupPage />
-        </Route>
-        <Route path="/">
-          <BookTeeTime />
-        </Route>
-      </Switch>
-    </Container>
+    <Switch>
+      <Route path="/signup" exact={true}>
+        <SignupPage />
+      </Route>
+      <Route path="/">
+        <BookTeeTime />
+      </Route>
+    </Switch>
   );
 }
 

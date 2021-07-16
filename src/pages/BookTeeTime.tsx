@@ -56,7 +56,12 @@ const BookTeeTime: React.FC<{}> = () => {
         </Button>
       )}
       {user ? (
-        <Stack flexDirection="column" spacing={2}>
+        <Stack
+          flexDirection="column"
+          spacing={2}
+          w={'100%'}
+          alignItems="center"
+        >
           <BoookingForm user={user} tickets={tickets} setTickets={setTickets} />
           <Container maxW="container.xl" background="white">
             <TicketsContainer tickets={tickets} setTickets={setTickets} />
