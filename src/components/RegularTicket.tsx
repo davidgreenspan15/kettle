@@ -1,8 +1,8 @@
-import { Flex, Heading, Text, Stack, Box, Button } from '@chakra-ui/react';
+import { Flex, Heading, Text } from '@chakra-ui/react';
 import React from 'react';
-import { Ticket, Response } from '../types/user';
+
 import { courses } from '../config/courseDB';
-import { CourseDB } from '../types/search';
+import { Ticket } from '../types/user';
 
 const RegularTicket: React.FC<{ t: Ticket }> = ({ t }) => {
   const getNames = (t: Ticket) => {

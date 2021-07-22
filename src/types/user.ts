@@ -2,9 +2,10 @@
 
 export interface User {
   id: string;
-  email: string;
-  name: string;
-  createdAt: string;
+  username: string;
+  password: string;
+  golferUsername: string;
+  golferPassword: string;
   isAdmin: boolean;
   tickets: Ticket[];
 }

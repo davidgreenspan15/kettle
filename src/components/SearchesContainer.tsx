@@ -16,7 +16,6 @@ import { Ticket } from '../types/user';
 
 const SearchesContainer: React.FC<{ t: Ticket }> = ({ t }) => {
   const moreThan600 = useMediaQuery('(min-width: 680px)');
-  console.log(moreThan600);
   return (
     <Flex flexDirection="column" px={['0px', '25px']} pt="10px">
       <Heading size="xs">Searches</Heading>
@@ -30,7 +29,7 @@ const SearchesContainer: React.FC<{ t: Ticket }> = ({ t }) => {
         </Thead>
         {t?.searches?.map((s, idx) => {
           return (
-            <Tbody>
+            <Tbody key={idx}>
               <Tr>
                 <Td fontSize={['10px', '12px', '14px']} py={[0, '5px']}>
                   {moreThan600[0]

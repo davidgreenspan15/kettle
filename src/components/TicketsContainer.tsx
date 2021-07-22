@@ -15,12 +15,14 @@ const TicketsContainer: React.FC<{
   const handleCancel = async (id: number) => {
     try {
       const ticket = await cancelTicket(id);
+      console.log(ticket);
       if (ticket) {
-        let newTickets = tickets?.map(t => {
+        let newTickets: Ticket[] = [];
+        tickets?.forEach(t => {
           if (t.id === ticket.id) {
-            return ticket;
+            newTickets.push(ticket);
           } else {
-            return t;
+            newTickets.push(t);
           }
         });
         setTickets(newTickets ?? []);

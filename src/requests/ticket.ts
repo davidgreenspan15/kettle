@@ -1,12 +1,17 @@
 import { Ticket } from '../types/user';
 import axios from 'axios';
 import { SearchForm } from '../types/search';
+let baseUrl =
+  process.env.REACT_APP_LOCAL === 'True'
+    ? 'http://localhost:8000'
+    : 'https://kettle-pot.herokuapp.com';
+
 export const createTicket = async (body: SearchForm) => {
   let myHeaders = new Headers();
 
   try {
     const ticket = await axios.post<Ticket>(
-      'http://localhost:8000/tickets/create',
+      `${baseUrl}/tickets`,
       {
         ...body,
       },
@@ -23,7 +28,7 @@ export const getMyTickets = async (uuid: string) => {
 
   try {
     const ticket = await axios.post<Ticket[]>(
-      `http://localhost:8000/tickets/${uuid}/`,
+      `${baseUrl}/tickets/${uuid}/`,
       {},
       { method: 'POST', headers: myHeaders }
     );
@@ -38,7 +43,7 @@ export const cancelTicket = async (id: number) => {
 
   try {
     const ticket = await axios.post<Ticket>(
-      `http://localhost:8000/tickets/${id}/cancel`,
+      `${baseUrl}/tickets/${id}/cancel`,
       {},
       { method: 'POST', headers: myHeaders }
     );

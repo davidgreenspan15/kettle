@@ -12,11 +12,11 @@ import { getMyTickets } from '../requests/ticket';
 const BookTeeTime: React.FC<{}> = () => {
   const [user, setUser] = React.useState<User>();
   const [tickets, setTickets] = React.useState<Ticket[]>([]);
-  const id = localStorage.getItem('user-id');
+  const id = localStorage.getItem('tee-time-user-id');
   const history = useHistory();
   React.useEffect(() => {
     if (!id) {
-      history.push('/signup');
+      history.push('/login');
     } else {
       hanldeAutoLogin();
     }
@@ -46,6 +46,14 @@ const BookTeeTime: React.FC<{}> = () => {
 
   return (
     <Flex flexDirection="column" w="100%" p={['0px', '10px']} maxW="" h="100%">
+      <Button
+        onClick={() => {
+          localStorage.removeItem('tee-time-user-id');
+          history.push('/signup');
+        }}
+      >
+        Logout
+      </Button>
       {user && user.isAdmin && (
         <Button
           onClick={() => {
@@ -55,6 +63,7 @@ const BookTeeTime: React.FC<{}> = () => {
           Run Search
         </Button>
       )}
+
       {user ? (
         <Stack
           flexDirection="column"

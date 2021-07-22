@@ -1,27 +1,18 @@
 import { SearchRequest } from '../types/search';
 import axios from 'axios';
-export const search = (body: SearchRequest) => {
-  let myHeaders = new Headers();
-  myHeaders.append('Content-Type', 'application/json');
-
-  let raw = JSON.stringify(body);
-
-  return fetch('http://localhost:8000/search', {
-    method: 'POST',
-    headers: myHeaders,
-    body: raw,
-  }).then(response => response.json());
-};
+let baseUrl =
+  process.env.REACT_APP_LOCAL === 'True'
+    ? 'http://localhost:8000'
+    : 'https://kettle-pot.herokuapp.com';
 
 export const searchTickets = async () => {
   let myHeaders = new Headers();
-  myHeaders.append('Content-Type', 'application/json');
 
   try {
     const resp = await axios.get<any>(
-      'http://localhost:8000/search',
+      `${baseUrl}/search`,
 
-      { method: 'GET', headers: myHeaders }
+      { method: 'GET' }
     );
     return resp.data;
   } catch (err) {

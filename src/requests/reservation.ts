@@ -1,4 +1,10 @@
 import { ReservationRequest } from '../types/reserve';
+
+let baseUrl =
+  process.env.REACT_APP_LOCAL === 'True'
+    ? 'http://localhost:8000'
+    : 'https://kettle-pot.herokuapp.com';
+
 interface Data {
   body: ReservationRequest;
   cookies: string;
@@ -8,7 +14,7 @@ export const reserve = (data: Data) => {
   myHeaders.append('Content-Type', 'application/json');
   let raw = JSON.stringify({ data: data.body, cookies: data.cookies });
 
-  return fetch('http://localhost:8000/reserve', {
+  return fetch(`${baseUrl}/reserve`, {
     method: 'POST',
     headers: myHeaders,
     body: raw,

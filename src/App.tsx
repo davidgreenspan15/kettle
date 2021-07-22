@@ -5,13 +5,17 @@ import { Route, Switch } from 'react-router-dom';
 
 import BookTeeTime from './pages/BookTeeTime';
 import SignupPage from './pages/SignnupPage';
-import { Container } from '@chakra-ui/react';
+
+import LoginPage from './pages/LoginPage';
 
 function App() {
   return (
     <Switch>
       <Route path="/signup" exact={true}>
         <SignupPage />
+      </Route>
+      <Route path="/login" exact={true}>
+        <LoginPage />
       </Route>
       <Route path="/">
         <BookTeeTime />

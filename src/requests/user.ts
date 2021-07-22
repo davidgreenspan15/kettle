@@ -1,12 +1,17 @@
 import { User } from '../types/user';
 import axios from 'axios';
+let baseUrl =
+  process.env.REACT_APP_LOCAL === 'True'
+    ? 'http://localhost:8000'
+    : 'https://kettle-pot.herokuapp.com';
+
 export const signup = async (body: Signup) => {
   let myHeaders = new Headers();
   myHeaders.append('Content-Type', 'application/json');
 
   try {
     const user = await axios.post<User>(
-      'http://localhost:8000/users',
+      `${baseUrl}/users`,
       { ...body },
       { method: 'POST', headers: myHeaders }
     );
@@ -15,13 +20,13 @@ export const signup = async (body: Signup) => {
     console.log(err);
   }
 };
-export const login = async (body: Signup) => {
+export const login = async (body: Login) => {
   let myHeaders = new Headers();
   myHeaders.append('Content-Type', 'application/json');
 
   try {
     const user = await axios.post<User>(
-      'http://localhost:8000/login',
+      `${baseUrl}/login`,
       { ...body },
       { method: 'POST', headers: myHeaders }
     );
@@ -33,10 +38,9 @@ export const login = async (body: Signup) => {
 export const autoLogin = async (body: string | null) => {
   let myHeaders = new Headers();
   myHeaders.append('Content-Type', 'application/json');
-
   try {
     const user = await axios.post<User>(
-      'http://localhost:8000/autoLogin',
+      `${baseUrl}/autoLogin`,
       { id: body },
       { method: 'POST', headers: myHeaders }
     );
@@ -47,6 +51,13 @@ export const autoLogin = async (body: string | null) => {
 };
 
 interface Signup {
-  name: String;
-  email: String;
+  username: String;
+  password: String;
+  golferUsername: String;
+  golferPassword: String;
+}
+
+interface Login {
+  username: String;
+  password: String;
 }

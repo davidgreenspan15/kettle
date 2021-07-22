@@ -1,4 +1,4 @@
-import { Flex, Heading, Text, Stack } from '@chakra-ui/react';
+import { Flex, Heading, Text } from '@chakra-ui/react';
 import React from 'react';
 import { Ticket } from '../types/user';
 const CompletedTicket: React.FC<{ t: Ticket }> = ({ t }) => {
@@ -51,21 +51,6 @@ const getTeeTimeInfo = (t: Ticket) => {
   if (response) {
     const { CourseName, ScheduledTime, NumberOfPlayers } = response;
     return { CourseName, ScheduledTime, NumberOfPlayers };
-  }
-};
-
-const statusColor = (t: Ticket) => {
-  switch (t.status) {
-    case 'complete':
-      return 'green';
-    case 'searching':
-      return 'rgb(238 191 0)';
-    case 'failed':
-      return 'red';
-    case 'cancelled':
-      return 'gray';
-    default:
-      break;
   }
 };
 
