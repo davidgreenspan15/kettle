@@ -23,8 +23,7 @@
     "noUnusedLocals": false,
     "noImplicitAny": false,
     "sourceMap": true,
-    "outDir": "dist"
-   
+    "outDir": "dist",
   },
   "include": [
     "src"
