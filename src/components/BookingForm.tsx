@@ -1,5 +1,5 @@
 import { Flex, Heading, Input } from '@chakra-ui/react';
-import { Button } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
 import Chip from '@material-ui/core/Chip';
 import moment from 'moment';
 import React, { useState } from 'react';
