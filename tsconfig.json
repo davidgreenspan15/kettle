@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "ES6",
     "lib": [
       "dom",
       "dom.iterable",
@@ -17,14 +17,18 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx",
+    "jsx": "react",
     "noUnusedParameters": false,
     "noUnusedLocals": false,
     "noImplicitAny": false,
     "sourceMap": true,
-    "outDir": "dist",
-  },
+    "outDir": "./dist/",
+  
+ 
+  }, "exclude": [
+    "node_modules",
+    "dev_server.js"
+],
   "include": [
     "src"
   ]
