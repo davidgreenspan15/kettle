@@ -37,11 +37,10 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "react-scripts --optimize_for_size --max_old_space_size=460 start",
-    "build": "react-scripts --optimize_for_size --max_old_space_size=460 build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "postinstall": "tsc"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
