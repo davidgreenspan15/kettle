@@ -49,7 +49,7 @@ const BookTeeTime: React.FC<{}> = () => {
       <Button
         onClick={() => {
           localStorage.removeItem('tee-time-user-id');
-          history.push('/signup');
+          history.push('/login');
         }}
       >
         Logout

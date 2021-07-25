@@ -1,4 +1,11 @@
-import { Button, Flex, Heading, Input } from '@chakra-ui/react';
+import {
+  Button,
+  Flex,
+  Heading,
+  Input,
+  Container,
+  VStack,
+} from '@chakra-ui/react';
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 
@@ -28,39 +35,47 @@ const SignupPage: React.FC<{}> = () => {
   };
 
   return (
-    <Flex flexDirection="row" w="100%">
+    <Container maxW="container.lg" background="white" p="20px">
       <Flex flexDirection="column" w="100%">
-        <Heading fontFamily={'Poppins,sans-serif'}>Signup</Heading>
-        <Input
-          placeholder="username"
-          required
-          onChange={e => setUsername(e.target.value.toLowerCase())}
-        />
-        <Input
-          placeholder="password"
-          required
-          onChange={e => setPassword(e.target.value)}
-          type="password"
-        />
-        <Input
-          placeholder="golferUsername"
-          required
-          onChange={e => setGolferUsername(e.target.value.toLowerCase())}
-        />
-        <Input
-          placeholder="golferPassword"
-          required
-          onChange={e => setGolferPassword(e.target.value)}
-          type="password"
-        />
-        <Flex flexDirection="row">
+        <Heading fontFamily={'Poppins,sans-serif'} pb="30px">
+          Signup
+        </Heading>
+        <VStack spacing="20px" p="10px">
+          <Input
+            placeholder="Username"
+            required
+            onChange={e => setUsername(e.target.value.toLowerCase())}
+            autoComplete="new-password"
+          />
+          <Input
+            placeholder="Password"
+            required
+            onChange={e => setPassword(e.target.value)}
+            type="password"
+            autoComplete="new-password"
+          />
+          <Input
+            placeholder="Golfer Username"
+            required
+            onChange={e => setGolferUsername(e.target.value.toLowerCase())}
+            autoComplete="new-password"
+          />
+          <Input
+            placeholder="Golfer Password"
+            required
+            onChange={e => setGolferPassword(e.target.value)}
+            type="password"
+            autoComplete="new-password"
+          />
+        </VStack>
+        <VStack spacing="20px" p="10px">
           <Button onClick={() => handleSignup()}>Signup</Button>
           <Button onClick={() => history.push('/login')}>
             Go To Login Page
           </Button>
-        </Flex>
+        </VStack>
       </Flex>
-    </Flex>
+    </Container>
   );
 };
 

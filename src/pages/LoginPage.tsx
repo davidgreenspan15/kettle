@@ -1,4 +1,11 @@
-import { Button, Flex, Heading, Input } from '@chakra-ui/react';
+import {
+  Button,
+  Flex,
+  Heading,
+  Input,
+  Container,
+  VStack,
+} from '@chakra-ui/react';
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 
@@ -22,29 +29,34 @@ const LoginPage: React.FC<{}> = () => {
   };
 
   return (
-    <Flex flexDirection="row" w="100%">
+    <Container maxW="container.lg" background="white" p="20px">
       <Flex flexDirection="column" w="100%">
-        <Heading fontFamily={'Poppins,sans-serif'}>Login</Heading>
-        <Input
-          placeholder="username"
-          required
-          onChange={e => setUsername(e.target.value.toLowerCase())}
-        />
-        <Input
-          placeholder="password"
-          required
-          onChange={e => setPassword(e.target.value)}
-          type="password"
-        />
+        <Heading fontFamily={'Poppins,sans-serif'} pb="30px">
+          Login
+        </Heading>
+        <VStack spacing="20px" p="10px">
+          <Input
+            placeholder="Username"
+            required
+            onChange={e => setUsername(e.target.value.toLowerCase())}
+          />
+          <Input
+            placeholder="Password"
+            required
+            onChange={e => setPassword(e.target.value)}
+            type="password"
+          />
+        </VStack>
 
-        <Flex flexDirection="row">
+        <VStack spacing="20px" p="10px">
+          <Button onClick={() => handlelogin()}>Login</Button>
+
           <Button onClick={() => history.push('/signup')}>
             Go To Signup Page
           </Button>
-          <Button onClick={() => handlelogin()}>Login</Button>
-        </Flex>
+        </VStack>
       </Flex>
-    </Flex>
+    </Container>
   );
 };
 
