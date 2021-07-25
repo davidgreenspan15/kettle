@@ -37,8 +37,7 @@ const BookTeeTime: React.FC<{}> = () => {
 
   const handleSearch = async () => {
     try {
-      const response = searchTickets();
-      console.log(response);
+      await searchTickets();
     } catch (err) {
       console.log(err);
     }

@@ -4,9 +4,8 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 import BookTeeTime from './pages/BookTeeTime';
-import SignupPage from './pages/SignnupPage';
-
 import LoginPage from './pages/LoginPage';
+import SignupPage from './pages/SignnupPage';
 
 function App() {
   return (

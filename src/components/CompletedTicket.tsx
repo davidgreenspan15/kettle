@@ -47,7 +47,6 @@ const getTeeTimeInfo = (t: Ticket) => {
     t.searches.length > 0 &&
     t.searches[t.searches.length - 1].response &&
     t.searches[t.searches.length - 1].response;
-  console.log(response, 'resp');
   if (response) {
     const { CourseName, ScheduledTime, NumberOfPlayers } = response;
     return { CourseName, ScheduledTime, NumberOfPlayers };

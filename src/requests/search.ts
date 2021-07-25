@@ -1,4 +1,3 @@
-import { SearchRequest } from '../types/search';
 import axios from 'axios';
 let baseUrl =
   process.env.REACT_APP_LOCAL === 'True'
@@ -6,8 +5,6 @@ let baseUrl =
     : 'https://kettle-pot.herokuapp.com';
 
 export const searchTickets = async () => {
-  let myHeaders = new Headers();
-
   try {
     const resp = await axios.get<any>(
       `${baseUrl}/search`,

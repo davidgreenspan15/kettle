@@ -27,7 +27,6 @@ const TicketsContainer: React.FC<{
         });
         setTickets(newTickets ?? []);
       }
-      console.log(tickets);
     } catch (err) {
       console.log(err);
     }
