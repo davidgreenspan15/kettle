@@ -18,19 +18,28 @@ const SignupPage: React.FC<{}> = () => {
   const [golferPassword, setGolferPassword] = React.useState('');
   const history = useHistory();
   const handleSignup = async () => {
-    try {
-      const user = await signup({
-        username,
-        password,
-        golferUsername,
-        golferPassword,
-      });
-      if (user) {
-        localStorage.setItem('tee-time-user-id', user.id);
-        history.push('/teeTimes');
+    if (
+      username.length > 0 &&
+      password.length > 0 &&
+      golferUsername.length > 0 &&
+      golferPassword.length > 0
+    ) {
+      try {
+        const user = await signup({
+          username,
+          password,
+          golferUsername,
+          golferPassword,
+        });
+        if (user) {
+          localStorage.setItem('tee-time-user-id', user.id);
+          history.push('/teeTimes');
+        }
+      } catch (err) {
+        console.log(err);
       }
-    } catch (err) {
-      console.log(err);
+    } else {
+      alert('Please include all fields');
     }
   };
 
