@@ -54,7 +54,6 @@ const BoookingForm: React.FC<{
       if (ticket) {
         setTickets([ticket, ...tickets]);
       }
-      console.log(ticket);
     } catch (err) {
       console.log(err);
     }
