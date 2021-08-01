@@ -32,7 +32,7 @@ const SearchesContainer: React.FC<{ t: Ticket }> = ({ t }) => {
               width="100%"
             >
               <Heading size="xs">Searches</Heading>
-              <Heading size="xs">{t.searches?.length}</Heading>
+              <Heading size="xs">{t.searches?.length ?? 0}</Heading>
             </Flex>
             <AccordionIcon />
           </AccordionButton>
