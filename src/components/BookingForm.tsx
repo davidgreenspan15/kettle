@@ -1,5 +1,4 @@
-import { Flex, Heading, Input } from '@chakra-ui/react';
-import Button from '@material-ui/core/Button';
+import { Flex, Heading, Input, Button } from '@chakra-ui/react';
 import Chip from '@material-ui/core/Chip';
 import moment from 'moment';
 import React, { useState } from 'react';
@@ -216,12 +215,9 @@ const BoookingForm: React.FC<{
         onClick={() => {
           handleSubmit();
         }}
-        style={{
-          alignSelf: 'flex-end',
-          background: '#3f51b5',
-          color: 'white',
-          boxShadow: '-2px 1px 20px 0px grey',
-        }}
+        variant="outline"
+        colorScheme="blue"
+        alignSelf="flex-end"
       >
         Submit Ticket
       </Button>

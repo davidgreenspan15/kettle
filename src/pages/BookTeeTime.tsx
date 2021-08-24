@@ -9,6 +9,7 @@ import { searchTickets } from '../requests/search';
 import { autoLogin } from '../requests/user';
 import { User, Ticket } from '../types/user';
 import { getMyTickets } from '../requests/ticket';
+import NavBar from '../components/NavBar';
 const BookTeeTime: React.FC<{}> = () => {
   const [user, setUser] = React.useState<User>();
   const [tickets, setTickets] = React.useState<Ticket[]>([]);
@@ -44,40 +45,53 @@ const BookTeeTime: React.FC<{}> = () => {
   };
 
   return (
-    <Flex flexDirection="column" w="100%" p={['0px', '10px']} maxW="" h="100%">
-      <Button
-        onClick={() => {
-          localStorage.removeItem('tee-time-user-id');
-          history.push('/login');
-        }}
+    <Flex flexDirection="row">
+      {/* <NavBar user={user} /> */}
+      <Flex
+        flexDirection="column"
+        w="100%"
+        p={['0px', '10px']}
+        maxW=""
+        h="100%"
       >
-        Logout
-      </Button>
-      {user && user.isAdmin && (
         <Button
           onClick={() => {
-            handleSearch();
+            localStorage.removeItem('tee-time-user-id');
+            history.push('/login');
           }}
         >
-          Run Search
+          Logout
         </Button>
-      )}
+        {user && user.isAdmin && (
+          <Button
+            onClick={() => {
+              handleSearch();
+            }}
+          >
+            Run Search
+          </Button>
+        )}
 
-      {user ? (
-        <Stack
-          flexDirection="column"
-          spacing={2}
-          w={'100%'}
-          alignItems="center"
-        >
-          <BoookingForm user={user} tickets={tickets} setTickets={setTickets} />
-          <Container maxW="container.xl" background="white">
-            <TicketsContainer tickets={tickets} setTickets={setTickets} />
-          </Container>
-        </Stack>
-      ) : (
-        <Heading>No User Error</Heading>
-      )}
+        {user ? (
+          <Stack
+            flexDirection="column"
+            spacing={2}
+            w={'100%'}
+            alignItems="center"
+          >
+            <BoookingForm
+              user={user}
+              tickets={tickets}
+              setTickets={setTickets}
+            />
+            <Container maxW="container.xl" background="white">
+              <TicketsContainer tickets={tickets} setTickets={setTickets} />
+            </Container>
+          </Stack>
+        ) : (
+          <Heading>No User Error</Heading>
+        )}
+      </Flex>
     </Flex>
   );
 };

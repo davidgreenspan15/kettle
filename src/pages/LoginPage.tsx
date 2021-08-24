@@ -29,7 +29,12 @@ const LoginPage: React.FC<{}> = () => {
   };
 
   return (
-    <Container maxW="container.lg" background="white" p="20px">
+    <Container
+      maxW="container.lg"
+      background="white"
+      p="20px"
+      alignItems="center"
+    >
       <Flex flexDirection="column" w="100%">
         <Heading fontFamily={'Poppins,sans-serif'} pb="30px">
           Login

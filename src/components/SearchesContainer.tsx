@@ -23,7 +23,7 @@ const SearchesContainer: React.FC<{ t: Ticket }> = ({ t }) => {
   const moreThan600 = useMediaQuery('(min-width: 680px)');
   return (
     <Flex flexDirection="column" px={['0px', '25px']} pt="10px">
-      <Accordion allowToggle>
+      <Accordion allowToggle px={['0px', '16px']}>
         <AccordionItem>
           <AccordionButton>
             <Flex
@@ -40,9 +40,9 @@ const SearchesContainer: React.FC<{ t: Ticket }> = ({ t }) => {
             <Table size="sm">
               <Thead>
                 <Tr>
-                  <Th>Time</Th>
-                  <Th>Status</Th>
-                  <Th>Comments</Th>
+                  <Th fontSize={['8px', '12px']}>Time</Th>
+                  <Th fontSize={['8px', '12px']}>Status</Th>
+                  <Th fontSize={['8px', '12px']}>Comments</Th>
                 </Tr>
               </Thead>
               {t?.searches?.map((s, idx) => {
